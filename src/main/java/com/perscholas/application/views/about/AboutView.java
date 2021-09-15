@@ -1,12 +1,13 @@
-package com.example.application.views.about;
+package com.perscholas.application.views.about;
 
+import com.perscholas.application.views.MainLayout;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.PageTitle;
-import com.example.application.views.MainLayout;
+
 import javax.annotation.security.PermitAll;
 
 @PageTitle("About")
@@ -15,7 +16,7 @@ import javax.annotation.security.PermitAll;
 public class AboutView extends VerticalLayout {
 
     public AboutView() {
-        Image img = new Image("images/empty-plant.png", "placeholder plant");
+        Image img = new Image("images/test.jpg", "Testing Image");
         img.setWidth("200px");
         add(img);
 

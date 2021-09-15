@@ -1,16 +1,16 @@
-package com.example.application.views;
+package com.perscholas.application.views;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.perscholas.application.data.entity.User;
 import com.vaadin.flow.component.Component;
-import com.vaadin.flow.component.ComponentUtil;
-import com.vaadin.flow.component.Text;
+
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.button.ButtonVariant;
-import com.vaadin.flow.component.html.Image;
+
 import com.vaadin.flow.component.html.Nav;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.html.Footer;
@@ -18,22 +18,16 @@ import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.html.Header;
-import com.vaadin.flow.component.orderedlayout.FlexComponent;
-import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
-import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.tabs.Tab;
-import com.vaadin.flow.component.tabs.Tabs;
-import com.vaadin.flow.component.tabs.TabsVariant;
+
 import com.vaadin.flow.router.RouterLink;
-import com.vaadin.flow.router.Route;
+
 import com.vaadin.flow.router.PageTitle;
-import com.example.application.views.MainLayout;
-import com.example.application.views.helloworld.HelloWorldView;
-import com.example.application.views.about.AboutView;
-import com.example.application.views.login.LoginView;
+
+import com.perscholas.application.views.helloworld.HelloWorldView;
+import com.perscholas.application.views.about.AboutView;
+
 import com.vaadin.flow.component.avatar.Avatar;
-import com.example.application.data.entity.User;
-import com.example.application.security.AuthenticatedUser;
+import com.perscholas.application.security.AuthenticatedUser;
 import com.vaadin.flow.server.auth.AccessAnnotationChecker;
 import com.vaadin.flow.component.contextmenu.ContextMenu;
 import com.vaadin.flow.component.html.Anchor;
@@ -167,7 +161,7 @@ public class MainLayout extends AppLayout {
         if (maybeUser.isPresent()) {
             User user = maybeUser.get();
 
-            Avatar avatar = new Avatar(user.getName(), user.getProfilePictureUrl());
+            Avatar avatar = new Avatar(user.getUsername(), user.getProfilePictureUrl());
             avatar.addClassNames("me-xs");
 
             ContextMenu userMenu = new ContextMenu(avatar);
@@ -176,7 +170,7 @@ public class MainLayout extends AppLayout {
                 authenticatedUser.logout();
             });
 
-            Span name = new Span(user.getName());
+            Span name = new Span(user.getUsername());
             name.addClassNames("font-medium", "text-s", "text-secondary");
 
             layout.add(avatar, name);

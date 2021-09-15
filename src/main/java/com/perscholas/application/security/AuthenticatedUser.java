@@ -1,9 +1,9 @@
-package com.example.application.security;
+package com.perscholas.application.security;
 
 import java.util.Optional;
 
-import com.example.application.data.entity.User;
-import com.example.application.data.service.UserRepository;
+import com.perscholas.application.data.entity.User;
+import com.perscholas.application.data.service.UserRepository;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.server.VaadinServletRequest;
 

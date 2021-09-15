@@ -1,4 +1,4 @@
-package com.example.application.data;
+package com.perscholas.application.data;
 
 public enum Role {
     USER("user"), ADMIN("admin");

@@ -1,10 +1,10 @@
-package com.example.application.security;
+package com.perscholas.application.security;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.example.application.data.entity.User;
-import com.example.application.data.service.UserRepository;
+import com.perscholas.application.data.entity.User;
+import com.perscholas.application.data.service.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -12,6 +12,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,6 +20,14 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
+
+
+    private PasswordEncoder passwordEncoder;
+    public UserDetailsServiceImpl(PasswordEncoder passwordEn, UserRepository userRepo){
+        this.userRepository = userRepo;
+        this.passwordEncoder = passwordEn;
+    }
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
